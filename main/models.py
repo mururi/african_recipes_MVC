@@ -1,5 +1,4 @@
 from django.db import models
-from django.forms import CharField
 
 class Recipe(models.Model):
     title = models.CharField(max_length=50)
