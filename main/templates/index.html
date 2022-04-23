@@ -8,6 +8,7 @@
       {% for recipe in recipes %}
       <div class="col-md-4">
         <div class="card">
+          <img src="{{ recipe.image.url }}" class="card-img-top" alt="{{ recipe.title }}">
           <div class="card-body">
             <h5 class="card-title">{{ recipe.title }}</h5>
             <h6 class="card-subtitle mb-2 text-muted">PREP TIME: {{ recipe.prep_time }}</h6>
