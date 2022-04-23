@@ -23,3 +23,11 @@ def add_recipe(request):
         "form": form
     }
     return render(request, 'add-recipe.html', context)
+
+def view_recipe(request, pk):
+    recipe = Recipe.get_recipe_by_id(pk)
+
+    context = {
+        "recipe": recipe
+    }
+    return render(request, 'view-recipe.html', context)
