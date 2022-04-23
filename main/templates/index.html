@@ -2,6 +2,24 @@
 
 {% block content %}
 
-<h1>African Recipes</h1>
+<div class="container-fluid py-5">
+  <div class="container-xxl">
+    <div class="row">
+      {% for recipe in recipes %}
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{ recipe.title }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">PREP TIME: {{ recipe.prep_time }}</h6>
+            <p class="card-text">{{ recipe.description }}</p>
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
 
 {% endblock %}

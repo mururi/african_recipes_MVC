@@ -1,4 +1,11 @@
 from django.shortcuts import render
 
+from main.models import Recipe
+
 def home(request):
-    return render(request, 'index.html')
+    recipes = Recipe.get_recipes()
+
+    context = {
+        "recipes": recipes
+    }
+    return render(request, 'index.html', context)
