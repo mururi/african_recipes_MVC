@@ -9,3 +9,27 @@ class Recipe(models.Model):
     ingredients = models.TextField()
     process = models.TextField()
     date_posted = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+
+    def create_recipe(self):
+        '''
+        Method to create/save a Recipe object
+        '''
+        self.save()
+
+    @classmethod
+    def get_recipes(cls):
+        '''
+        Method to get all Recipe objects
+        '''
+        recipes = cls.objects.all()
+        return recipes
+
+    @classmethod
+    def delete_recipe(cls, id):
+        '''
+        Method to delete a Recipe object
+        '''
+        cls.objects.filter(id = id).delete()
