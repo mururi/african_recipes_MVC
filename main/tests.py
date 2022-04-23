@@ -11,7 +11,7 @@ class RecipeTestClass(TestCase):
         '''
         Set up method to run before each test case
         '''
-        self.new_recipe = Recipe(title = 'Test Title', description = 'Test description', prep_time = 120, posted_by = 'John Doe', serves = 3, ingredients = 'List of ingredients', process = 'Test Process', date_posted = datetime.now())
+        self.new_recipe = Recipe(id = 1, title = 'Test Title', description = 'Test description', prep_time = 120, posted_by = 'John Doe', serves = 3, ingredients = 'List of ingredients', process = 'Test Process', date_posted = datetime.now())
         self.new_recipe.save()
 
     def test_instance(self):
@@ -26,6 +26,13 @@ class RecipeTestClass(TestCase):
         '''
         recipes = Recipe.get_recipes()
         self.assertTrue(len(recipes) > 0)
+
+    def test_get_recipe_by_id(self):
+        '''
+        Method to test the get_recipe_by_id method
+        '''
+        recipe = Recipe.get_recipe_by_id(1)
+        self.assertEqual(recipe.posted_by, 'John Doe')
 
     def test_delete(self):
         '''
