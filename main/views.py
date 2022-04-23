@@ -1,6 +1,6 @@
-from django.shortcuts import render
-
+from django.shortcuts import render, redirect
 from main.models import Recipe
+from .forms import RecipeForm
 
 def home(request):
     recipes = Recipe.get_recipes()
@@ -9,3 +9,17 @@ def home(request):
         "recipes": recipes
     }
     return render(request, 'index.html', context)
+
+def add_recipe(request):
+    if request.method == 'POST':
+        form = RecipeForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+        return redirect('home')
+    else:
+        form = RecipeForm()
+
+    context = {
+        "form": form
+    }
+    return render(request, 'add.html', context)
