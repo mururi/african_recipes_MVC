@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'main.apps.MainConfig',
     'bootstrap5',
     'cloudinary',
+    'tinymce',
 ]
 
 MIDDLEWARE = [
