@@ -1,6 +1,8 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 class Recipe(models.Model):
+    image = CloudinaryField('image')
     title = models.CharField(max_length=50)
     description = models.TextField()
     prep_time = models.IntegerField()
