@@ -22,4 +22,4 @@ def add_recipe(request):
     context = {
         "form": form
     }
-    return render(request, 'add.html', context)
+    return render(request, 'add-recipe.html', context)
