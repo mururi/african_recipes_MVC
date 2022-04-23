@@ -27,8 +27,14 @@ class Recipe(models.Model):
         '''
         Method to get all Recipe objects
         '''
-        recipes = cls.objects.all()
-        return recipes
+        return cls.objects.all()
+
+    @classmethod
+    def get_recipe_by_id(cls, id):
+        '''
+        Method to get a recipe by its ID
+        '''
+        return cls.objects.filter(id = id)[0]
 
     @classmethod
     def delete_recipe(cls, id):
