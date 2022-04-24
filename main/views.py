@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from main.models import Recipe
 from .forms import RecipeForm
-from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.contrib import messages
 
 def home(request):
     recipes = Recipe.get_recipes()
@@ -17,6 +17,7 @@ def add_recipe(request):
         form = RecipeForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
+            messages.success(request, "New Recipe Has Been Added Successfuly.")
         return redirect('home')
     else:
         form = RecipeForm()
@@ -41,6 +42,7 @@ def update_recipe(request, pk):
         form = RecipeForm(request.POST, request.FILES, instance=recipe)
         if form.is_valid():
             form.save()
+            messages.success(request, "Recipe Has Been Edited Successfuly.")
         return redirect(reverse('view-recipe', args=[recipe.id]))
     
     context = {
@@ -53,6 +55,7 @@ def delete_recipe(request, pk):
     recipe = Recipe.objects.get(id = pk)
     if request.method == 'POST':
         recipe.delete()
+        messages.warning(request, "Recipe Has Been Deleted.")
         return redirect('home')
 
     context = {
