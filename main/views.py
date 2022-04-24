@@ -24,7 +24,7 @@ def add_recipe(request):
     context = {
         "form": form
     }
-    return render(request, 'recipe-form.html', context)
+    return render(request, 'create-recipe.html', context)
 
 def view_recipe(request, pk):
     recipe = Recipe.get_recipe_by_id(pk)
