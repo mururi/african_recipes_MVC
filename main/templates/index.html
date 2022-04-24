@@ -1,24 +1,39 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block styles %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
 
 {% block header %}
-
+<div class="d-flex justify-content-center mb-3 align-items-center">
+  <div><a href="/" class="nav-links">HOME</a></div>
+  <div><a href="/" id="logo" class="mx-5">Taste of Africa</a></div>
+  <div><a href="{% url 'add-recipe' %}" class="nav-links">ADD RECIPE</a></div>
+</div>
+<h1 class="text-center">African Recipes</h1>
+<p class="text-center mb-5" id="tag-line">Have a taste of Africa</p>
 {% endblock header %}
 
 {% block content %}
 
     <div class="row">
       {% for recipe in recipes %}
-      <div class="col-md-4">
-        <div class="card">
-          <img src="{{ recipe.image.url }}" class="card-img-top" alt="{{ recipe.title }}">
-          <div class="card-body">
-            
-            <h5 class="card-title">{{ recipe.title }}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">PREP TIME: {{ recipe.prep_time }}</h6>
-            <p class="card-text">{{ recipe.description|safe }}</p>
-            <a href="{% url 'view-recipe' recipe.id %}" class="card-link">View</a>
-            <a href="{% url 'delete-recipe' recipe.id %}" class="card-link">Delete</a>
-            
+      <div class="col-md-3">
+        <div class="custom-card position-relative" style="background-image: url({{recipe.image.url}});">
+          <!-- <img src="{{ recipe.image.url }}" class="img-fluid" alt="{{ recipe.title }}"> -->
+          <div class="row recipe-details position-absolute">
+            <div class="col-9">
+              <p>{{ recipe.title }}</p>
+            </div>
+            <div class="col-3">
+              <span class="material-icons">delete_forever</span>
+            </div>
+            <div class="col-12">
+              <p>{{ recipe.prep_time }} Mins | {{ recipe.serves }} Serving</p>
+            </div>
+
           </div>
         </div>
       </div>
