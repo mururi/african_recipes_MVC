@@ -15,7 +15,7 @@
             <h6 class="card-subtitle mb-2 text-muted">PREP TIME: {{ recipe.prep_time }}</h6>
             <p class="card-text">{{ recipe.description|safe }}</p>
             <a href="{% url 'view-recipe' recipe.id %}" class="card-link">View</a>
-            <a href="#" class="card-link">Another link</a>
+            <a href="{% url 'delete-recipe' recipe.id %}" class="card-link">Delete</a>
             {% endautoescape %}
           </div>
         </div>
