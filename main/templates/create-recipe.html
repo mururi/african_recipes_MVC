@@ -3,20 +3,18 @@
 
 {% block content %}
 
-<div class="container-fluid">
-  <div class="container-xxl">
-    <div class="row d-flex justify-content-center">
-      <div class="col-md-6">
-        <form action="{% url 'add-recipe' %}" enctype="multipart/form-data" method="post">
 
-          {% csrf_token %}
-          {% bootstrap_form form %}
-          <input type="submit" class="btn btn-primary btn-sm" value="Submit">
-    
-        </form>
-      </div>
-    </div>
+<div class="row d-flex justify-content-center">
+  <div class="col-md-6">
+    <form action="{% url 'add-recipe' %}" enctype="multipart/form-data" method="post">
+
+      {% csrf_token %}
+      {% bootstrap_form form %}
+      <input type="submit" class="btn btn-primary btn-sm" value="Submit">
+
+    </form>
   </div>
 </div>
+
 
 {% endblock %}

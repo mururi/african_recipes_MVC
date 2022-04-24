@@ -1,10 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container-fluid">
-  <div class="container-xxl">
-    <h2>{{ recipe.title }}</h2>
-    <a href="{% url 'update-recipe' recipe.id %}">Edit</a>
-  </div>
-</div>
+
+<h2>{{ recipe.title }}</h2>
+<a href="{% url 'update-recipe' recipe.id %}">Edit</a>
+
 {% endblock %}
