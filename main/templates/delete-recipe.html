@@ -1,12 +1,41 @@
 {% extends 'base.html' %}
+{% load bootstrap5 %}
+{% load static %}
+
+{% block styles %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/view-recipe.css' %}">
+{% endblock %}
+
+{% block title %}African Recipes | Add Recipe{% endblock %}
+
+{% block hero %}
+<div class="hero-container d-flex flex-column justify-content-end align-items-center">
+  <!-- Back button -->
+  <div class="back-icon">
+    <a href="{% url 'home' %}"><span class="material-icons">arrow_back_ios</span></a>
+  </div>
+
+  <!-- Page Heading -->
+  <div class="row py-3 px-4 recipe-heading mb-3">
+    <div class="col-12 recipe-title">
+        <h2 class="text-center">Delete Recipe</h2>
+    </div>
+  
+  </div>
+</div>
+
+{% endblock %}
+
 
 {% block content %}
-
-<p>Are you sure you want to delete "{{ recipe }}"</p>
-<form action="{% url 'delete-recipe' recipe.id %}" method="post">
-  {% csrf_token %}
-  <a href="{% url 'home' %}">Cancel</a>
-  <input type="submit" value="Confirm">
-</form>
+<div class="py-5 text-center">
+  <p class="display-6 mb-5">Are you sure you want to delete "{{ recipe }}"</p>
+  <form action="{% url 'delete-recipe' recipe.id %}" method="post">
+    {% csrf_token %}
+    <a href="{% url 'home' %}" class="btn btn-success mx-5">Cancel</a>
+    <input type="submit" value="Confirm" class="btn del-btn mx-5">
+  </form>
+</div>
 
 {% endblock %}
