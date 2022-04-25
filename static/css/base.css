@@ -16,3 +16,8 @@ h1 {
   background-color: #5F201E;
   color: white;
 }
+
+.form-label {
+  color: #5F201E;
+  font-weight: 600;
+}

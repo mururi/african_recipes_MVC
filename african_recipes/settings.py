@@ -160,3 +160,8 @@ cloudinary.config(
   api_secret = config('CLOUDINARY_API_SECRET'),
   secure = config('CLOUDINARY_SECURE')
 )
+
+TINYMCE_DEFAULT_CONFIG = {
+    "height": "320px",
+    "width": "100%"
+}
