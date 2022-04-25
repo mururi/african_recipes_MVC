@@ -23,14 +23,14 @@
       <div class="col-md-3">
         <div class="custom-card position-relative" style="background-image: url({{recipe.image.url}});">
           <!-- <img src="{{ recipe.image.url }}" class="img-fluid" alt="{{ recipe.title }}"> -->
-          <div class="row recipe-details position-absolute">
-            <div class="col-9">
-              <p>{{ recipe.title }}</p>
+          <div class="row pt-2 recipe-details position-absolute">
+            <div class="col-9 recipe-title">
+              <a href="{% url 'view-recipe' recipe.id %}"><p>{{ recipe.title | truncatechars:30 }}</p></a>
             </div>
-            <div class="col-3">
-              <span class="material-icons">delete_forever</span>
+            <div class="col-3 text-end delete-button">
+              <a href="{% url 'delete-recipe' recipe.id %}"><span class="material-icons">delete_forever</span></a>
             </div>
-            <div class="col-12">
+            <div class="col-12 recipe-subtitle">
               <p>{{ recipe.prep_time }} Mins | {{ recipe.serves }} Serving</p>
             </div>
 
