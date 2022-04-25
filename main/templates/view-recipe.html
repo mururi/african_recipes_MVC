@@ -10,9 +10,13 @@
 
 {% block hero %}
 <div class="hero-container d-flex flex-column justify-content-end align-items-center">
+  <!-- Back button -->
+  <div class="back-icon">
+    <a href="{% url 'home' %}"><span class="material-icons">arrow_back_ios</span></a>
+  </div>
   <div class="row py-3 px-4 recipe-heading mb-3">
     <div class="col-9 recipe-title">
-        <h2>{{ recipe.title | truncatechars:30 }}</h2>
+        <h2>{{ recipe.title }}</h2>
     </div>
     <div class="col-3 text-end delete-button">
       
@@ -35,16 +39,29 @@
 
 {% block content %}
 
-<div class="row">
+<div class="row py-5">
   <div class="col-md-4">
-    <div>
-      {{ recipe.ingredients }}
+    <div class="ingredients-container p-4">
+      <h3>Ingredients</h3>
+      {{ recipe.ingredients | safe}}
+      <div class="text-center">
+        <a href="{% url 'update-recipe' recipe.id %}" class="btn custom-btn">Edit Recipe</a>
+      </div>
+      
     </div>
   </div>
-  <div class="col-md-8">
+  <div class="col-md-8 py-4 px-5">
+    <div>
+      {{ recipe.description | safe }}
+    </div>
+    <div>
+      <h3>Method</h3>
+      {{ recipe.process | safe }}
+    </div>
+    
 
   </div>
 </div>
-<a href="{% url 'update-recipe' recipe.id %}">Edit</a>
+
 
 {% endblock %}

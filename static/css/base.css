@@ -4,6 +4,10 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+body {
+  background-color: #FFFDF8;
+}
+
 h1 {
   font-family: 'Oleo Script Swash Caps', cursive;
 }
