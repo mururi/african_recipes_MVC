@@ -11,3 +11,8 @@ body {
 h1 {
   font-family: 'Oleo Script Swash Caps', cursive;
 }
+
+.custom-btn {
+  background-color: #5F201E;
+  color: white;
+}

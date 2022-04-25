@@ -15,7 +15,13 @@
 </div>
 <!-- End of Navbar -->
 <h1 class="text-center">African Recipes</h1>
-<p class="text-center mb-5" id="tag-line">Have a taste of Africa</p>
+<p class="text-center mb-4" id="tag-line">Have a taste of Africa</p>
+
+<!-- Add recipe CTA -->
+<div class="add-recipe-cta text-center py-3 mb-5">
+  <p class="lead">Do you have a recipe you can't wait to share?</p>
+  <a href="{% url 'add-recipe' %}" class="btn custom-btn">Add Recipe</a>
+</div>
 {% endblock header %}
 
 {% block content %}
