@@ -1,0 +1,39 @@
+* {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+div.container-fluid.py-3 {
+  padding: 0 !important;
+}
+
+.hero-container {
+  height: 33vh;
+  width: auto;
+  background-image: url("../images/hero-2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.recipe-heading {
+  background: rgba(56, 56, 56, 0.9);
+  backdrop-filter: blur(4px);
+  border-radius: 10px;
+  color: #fff;
+  bottom: 15px;
+  width: 70%;
+}
+
+.recipe-title {
+  font-weight: 600;
+  font-size: 28px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.recipe-subtitle {
+  font-weight: 600;
+  font-size: 18px;
+  color: #A2A2A2;
+}
