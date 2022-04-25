@@ -17,9 +17,9 @@
   </div>
   <div class="row py-3 px-4 recipe-heading mb-3">
     <div class="col-12 text-center recipe-title">
-        <h2>Edit {{ recipe.title }}</h2>
-    </div>    
-  
+      <h2>Edit {{ recipe.title }}</h2>
+    </div>
+
   </div>
 </div>
 
@@ -29,50 +29,62 @@
 
 
 <div class="row d-flex justify-content-center py-5">
-  <form action="{% url 'add-recipe' %}" enctype="multipart/form-data" method="post"></form>
-    <div class="col-md-12">
-      {% csrf_token %}
-      <div>
-        {% bootstrap_field form.title %}
+  <form action="{% url 'update-recipe' recipe.id %}" enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+    {{form.non_field_errors}}
+    <div class="row">
+      <div class="col-md-12">
+        <div>
+          {{form.title.errors}}
+          {% bootstrap_field form.title %}
+        </div>
+        <div>
+          {{form.description.errors}}
+          {% bootstrap_field form.description %}
+        </div>
       </div>
-      <div>
-        {% bootstrap_field form.description %}
+      <div class="col-sm-4">
+        <div>
+          {{form.image.errors}}
+          {% bootstrap_field form.image %}
+        </div>
       </div>
-    </div>
-    <div class="col-sm-4">
-      <div>
-        {% bootstrap_field form.image %}
+      <div class="col-sm-4">
+        <div>
+          {{form.prep_time.errors}}
+          {% bootstrap_field form.prep_time %}
+        </div>
       </div>
-    </div>
-    <div class="col-sm-4">
-      <div>
-        {% bootstrap_field form.prep_time %}
+      <div class="col-sm-4">
+        <div>
+          {{form.serves.errors}}
+          {% bootstrap_field form.serves %}
+        </div>
       </div>
-    </div>
-    <div class="col-sm-4">
-      <div>
-        {% bootstrap_field form.serves %}
+      <div class="col-md-5">
+        <div>
+          {{form.ingredients.errors}}
+          {% bootstrap_field form.ingredients %}
+        </div>
       </div>
-    </div>
-    <div class="col-md-5">
-      <div>
-        {% bootstrap_field form.ingredients %}
+      <div class="col-md-7">
+        <div>
+          {{form.process.errors}}
+          {% bootstrap_field form.process %}
+        </div>
       </div>
-    </div>
-    <div class="col-md-7">
-      <div>
-        {% bootstrap_field form.process %}
+      <div class="col-md-12">
+        <div>
+          {{form.posted_by.errors}}
+          {% bootstrap_field form.posted_by %}
+        </div>
       </div>
-    </div>
-    <div class="col-md-12">
-      <div>
-        {% bootstrap_field form.posted_by %}
+      <div class="col-md-12 text-center">
+        <input type="submit" class="btn custom-btn" value="Submit">
       </div>
-    </div>
-    <div class="col-md-12 text-center">
-      <input type="submit" class="btn custom-btn" value="Submit">
     </div>
     
+
   </form>
 </div>
 
