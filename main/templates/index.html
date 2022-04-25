@@ -7,11 +7,13 @@
 {% endblock %}
 
 {% block header %}
+<!-- Navbar -->
 <div class="d-flex justify-content-center mb-3 align-items-center">
   <div><a href="/" class="nav-links">HOME</a></div>
   <div><a href="/" id="logo" class="mx-5">Taste of Africa</a></div>
   <div><a href="{% url 'add-recipe' %}" class="nav-links">ADD RECIPE</a></div>
 </div>
+<!-- End of Navbar -->
 <h1 class="text-center">African Recipes</h1>
 <p class="text-center mb-5" id="tag-line">Have a taste of Africa</p>
 {% endblock header %}
@@ -22,7 +24,6 @@
       {% for recipe in recipes %}
       <div class="col-md-3">
         <div class="custom-card position-relative" style="background-image: url({{recipe.image.url}});">
-          <!-- <img src="{{ recipe.image.url }}" class="img-fluid" alt="{{ recipe.title }}"> -->
           <div class="row pt-2 recipe-details position-absolute">
             <div class="col-9 recipe-title">
               <a href="{% url 'view-recipe' recipe.id %}"><p>{{ recipe.title | truncatechars:30 }}</p></a>

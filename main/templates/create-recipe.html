@@ -1,5 +1,31 @@
 {% extends 'base.html' %}
 {% load bootstrap5 %}
+{% load static %}
+
+{% block styles %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/view-recipe.css' %}">
+{% endblock %}
+
+{% block title %}African Recipes | {{ recipe.title }}{% endblock %}
+
+{% block hero %}
+<div class="hero-container d-flex flex-column justify-content-end align-items-center">
+  <!-- Back button -->
+  <div class="back-icon">
+    <a href="{% url 'home' %}"><span class="material-icons">arrow_back_ios</span></a>
+  </div>
+
+  <!-- Page Heading -->
+  <div class="row py-3 px-4 recipe-heading mb-3">
+    <div class="col-12 recipe-title">
+        <h2 class="text-center">Add New Recipe</h2>
+    </div>
+  
+  </div>
+</div>
+
+{% endblock %}
 
 {% block content %}
 
